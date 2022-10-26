@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1b
 kind: Ingress
 metadata:
   name: bluegreen-demo-preview
@@ -13,5 +13,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: bluegreen-demo-preview
-          servicePort: 80
+          service:
+            name: bluegreen-demo-preview
+            port:
+              number: 80
