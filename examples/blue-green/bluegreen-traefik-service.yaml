@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: TraefikService
+metadata:
+  name: traefik-service
+spec:
+  weighted:
+    services:
+      - name: bluegreen-demo
+        port: 80
+      - name: bluegreen-demo-preview
+        port: 80
+
