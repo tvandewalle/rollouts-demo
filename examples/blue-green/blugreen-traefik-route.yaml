@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: bluegreen-demo
+  namespace: bluegreen-demo
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`bluegreen-demo.rancher.localhost`)
+      services:
+        - name: bluegreen-demo
+          port: 80
